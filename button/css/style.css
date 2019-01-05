@@ -1,3 +1,17 @@
+.hover-slide-with-text::before, .hover-warp::before, .hover-warp::after, .hover-zoom::before {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.hover-rotate::before, .hover-slide::before, .hover-cross::before, .hover-cross::after, .hover-slide-with-text::before, .hover-warp::before, .hover-warp::after, .hover-zoom::before, .hover-reflex::before {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.hover-rotate::before, .hover-slide::before, .hover-cross::before, .hover-cross::after, .hover-slide-with-text::before, .hover-warp::before, .hover-warp::after, .hover-zoom::before {
+  height: 100%;
+  width: 100%; }
+
 body {
   display: flex;
   flex-wrap: wrap;
@@ -6,24 +20,21 @@ body {
 a {
   margin: 1rem; }
 
-/* Hover Rotate*/
-.hover-rotate {
+.btn {
   text-decoration: none;
-  color: #272727;
   font-family: sans-serif;
   font-size: 20px;
-  border: 1px solid #272727;
   padding: 20px 40px;
   position: relative;
   overflow: hidden; }
+
+/* Hover Rotate*/
+.hover-rotate {
+  color: #272727;
+  border: 1px solid #272727; }
   .hover-rotate::before {
     content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
     background-color: yellowgreen;
-    height: 100%;
-    width: 100%;
     z-index: -1;
     transform-origin: bottom left;
     transform: rotate(-90deg);
@@ -33,22 +44,11 @@ a {
 
 /* Hover Slide */
 .hover-slide {
-  text-decoration: none;
   color: #351435;
-  font-family: sans-serif;
-  font-size: 20px;
   border: 1px solid #351435;
-  padding: 20px 40px;
-  position: relative;
-  overflow: hidden;
   transition: all 1s; }
   .hover-slide::before {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
     background-color: #351435;
     z-index: -1;
     transform: translate(-100%);
@@ -60,39 +60,20 @@ a {
 
 /* Hover Cross */
 .hover-cross {
-  text-decoration: none;
   color: #262626;
-  font-family: sans-serif;
-  font-size: 20px;
   border: 1px solid #262626;
-  padding: 20px 40px;
-  position: relative;
-  overflow: hidden;
   transition: all 1s;
   letter-spacing: 2px; }
-  .hover-cross::before {
+  .hover-cross::before, .hover-cross::after {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     background-color: #262626;
     transition: all 1s;
-    z-index: -1;
+    z-index: -1; }
+  .hover-cross::before {
     transform: rotateX(90deg); }
   .hover-cross:hover::before {
     transform: rotateX(0); }
   .hover-cross::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #262626;
-    transition: all 1s;
-    z-index: -1;
     transform: rotateY(90deg); }
   .hover-cross:hover::after {
     transform: rotateY(0); }
@@ -101,12 +82,9 @@ a {
 
 /* Hover bold */
 .hover-bold {
-  text-decoration: none;
-  padding: 20px 40px;
   color: #e1332d;
   border: 1px solid #e1332d;
   text-transform: uppercase;
-  font-size: 20px;
   font-weight: 300;
   transition: all .5s;
   font-family: 'nunito'; }
@@ -117,30 +95,16 @@ a {
 
 /* Hover Slide with Text */
 .hover-slide-with-text {
-  text-decoration: none;
   color: white;
-  font-family: sans-serif;
-  font-size: 20px;
   border: 1px solid white;
-  padding: 20px 40px;
-  position: relative;
-  overflow: hidden;
   transition: all .5s;
   background-color: #262626; }
   .hover-slide-with-text::before {
     content: "YEAH";
     color: white;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
     background-color: orange;
     transform: translateY(-100%);
-    transition: all 1s;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
+    transition: all 1s; }
   .hover-slide-with-text:hover::before {
     transform: translateY(0); }
   .hover-slide-with-text:hover {
@@ -148,25 +112,16 @@ a {
 
 /* Hover Reflex */
 .hover-reflex {
-  text-decoration: none;
   color: #222;
-  font-family: sans-serif;
-  font-size: 20px;
   border: 1px solid #222;
-  padding: 20px 40px;
-  transition: all .5s;
-  position: relative;
-  overflow: hidden; }
+  transition: all .5s; }
   .hover-reflex:hover {
     background-color: red; }
   .hover-reflex::before {
     content: "";
     background-color: #ffffff50;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 50px;
-    position: absolute;
     transform: translateX(-150%) rotate(45deg);
     transition: all 1s; }
   .hover-reflex:hover::before {
@@ -174,41 +129,17 @@ a {
 
 /* Hover Warp */
 .hover-warp {
-  text-decoration: none;
   background-color: #262626;
-  font-family: sans-serif;
-  font-size: 20px;
   border: 1px solid #262626;
-  padding: 20px 40px;
-  position: relative;
-  overflow: hidden;
   color: transparent; }
-  .hover-warp::before {
-    content: 'Hover Me';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+  .hover-warp::before, .hover-warp::after {
     background-color: #fffa65;
     color: #262626;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transition: all .5s; }
+  .hover-warp::before {
+    content: 'Hover Me'; }
   .hover-warp::after {
     content: 'Eiei';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #fffa65;
-    color: #262626;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .5s;
     transform: translate(-100%, 100%); }
   .hover-warp:hover::before {
     transform: translate(100%, -100%); }
@@ -217,30 +148,38 @@ a {
 
 /* Hover Zoom */
 .hover-zoom {
-  text-decoration: none;
   color: #262626;
-  font-family: sans-serif;
-  font-size: 20px;
   border: 1px solid #262626;
-  padding: 20px 40px;
-  transition: all .5s;
-  position: relative;
-  overflow: hidden; }
+  transition: all .5s; }
   .hover-zoom::before {
     content: 'Hover me';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-color: #262626;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transform: scale(5);
     opacity: 0;
     transition: all .5s; }
   .hover-zoom:hover::before {
     opacity: 1;
     transform: scale(1); }
+
+/* Hover Up-Down line */
+.hover-updown-line {
+  color: blueviolet;
+  transition: all .5s; }
+  .hover-updown-line::before, .hover-updown-line::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    transition: all .5s;
+    background-color: blueviolet; }
+  .hover-updown-line::before {
+    top: 0;
+    left: 0;
+    transform: translateX(-100%); }
+  .hover-updown-line::after {
+    bottom: 0;
+    right: 0;
+    transform: translateX(100%); }
+  .hover-updown-line:hover::before, .hover-updown-line:hover::after {
+    transform: translateX(0); }
