@@ -193,7 +193,7 @@ a {
     @extend %tl-0;
     content: "";
     background-color: #ffffff50;
-    width: 100%;
+    width: 200%;
     height: 50px;
     transform: translateX(-150%) rotate(45deg);
     transition: all 1s;
@@ -352,5 +352,71 @@ a {
   &:hover::before,
   &:hover::after {
     @extend %hw-100;
+  }
+}
+
+
+/* Hover Span */
+.hover-span {
+
+  &::before,
+  &::after {
+    content: "";
+    background-color: blueviolet;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    transition-duration: .3s;
+  }
+
+  &::after {
+    @extend %tl-0;
+  }
+
+  &::before {
+    @extend %br-0;
+  }
+
+  &:hover::before {
+    width: 100%;
+    transition-delay: .9s;
+  }
+
+  &:hover::after {
+    width: 100%;
+    transition-delay: .3s;
+  }
+
+  &:hover>.hover-span-in::before {
+    height: 100%;
+  }
+
+  &:hover>.hover-span-in::after {
+    height: 100%;
+    transition-delay: .6s;
+  }
+
+}
+
+.hover-span-in {
+
+  &::before,
+  &::after {
+    content: "";
+    background-color: blueviolet;
+    position: absolute;
+    width: 2px;
+    height: 0;
+    transition-duration: .3s;
+  }
+
+  &::before {
+    bottom: 0;
+    left: 0;
+  }
+
+  &::after {
+    top: 0;
+    right: 0;
   }
 }
