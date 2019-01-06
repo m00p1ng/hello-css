@@ -3,14 +3,23 @@
   justify-content: center;
   align-items: center; }
 
-.hover-rotate::before, .hover-slide::before, .hover-cross::before, .hover-cross::after, .hover-slide-with-text::before, .hover-warp::before, .hover-warp::after, .hover-zoom::before, .hover-reflex::before {
+.hover-rotate::before, .hover-slide::before, .hover-cross::before, .hover-cross::after, .hover-slide-with-text::before, .hover-warp::before, .hover-warp::after, .hover-zoom::before, .hover-reflex::before, .hover-updown-line::before, .hover-square::before {
   position: absolute;
   top: 0;
   left: 0; }
 
-.hover-rotate::before, .hover-slide::before, .hover-cross::before, .hover-cross::after, .hover-slide-with-text::before, .hover-warp::before, .hover-warp::after, .hover-zoom::before {
+.hover-updown-line::after, .hover-square::after {
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+
+.hover-rotate::before, .hover-slide::before, .hover-cross::before, .hover-cross::after, .hover-slide-with-text::before, .hover-warp::before, .hover-warp::after, .hover-zoom::before, .hover-square:hover::before, .hover-square:hover::after {
   height: 100%;
   width: 100%; }
+
+.hover-square::before, .hover-square::after {
+  height: 0;
+  width: 0; }
 
 body {
   display: flex;
@@ -174,19 +183,14 @@ a {
     transition: all .5s;
     background-color: blueviolet; }
   .hover-updown-line::before {
-    top: 0;
-    left: 0;
     transform: translateX(-100%); }
   .hover-updown-line::after {
-    bottom: 0;
-    right: 0;
     transform: translateX(100%); }
   .hover-updown-line:hover::before, .hover-updown-line:hover::after {
     transform: translateX(0); }
 
 /* Hover Slide up */
 .hover-slide-up {
-  position: relative;
   transition: .5s ease-out;
   color: blueviolet; }
   .hover-slide-up::after {
@@ -203,3 +207,14 @@ a {
     color: #fff; }
   .hover-slide-up:hover::after {
     height: 100%; }
+
+/* Hover Square */
+.hover-square {
+  transition: .5s ease-out; }
+  .hover-square:hover {
+    color: white; }
+  .hover-square::before, .hover-square::after {
+    content: "";
+    background-color: blueviolet;
+    transition: .5s ease-out;
+    z-index: -1; }

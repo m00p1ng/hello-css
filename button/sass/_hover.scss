@@ -10,9 +10,20 @@
   left: 0;
 }
 
+%br-0 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 %hw-100 {
   height: 100%;
   width: 100%;
+}
+
+%hw-0 {
+  height: 0;
+  width: 0;
 }
 
 %tlhw {
@@ -270,14 +281,12 @@ a {
   }
 
   &::before {
-    top: 0;
-    left: 0;
+    @extend %tl-0;
     transform: translateX(-100%);
   }
 
   &::after {
-    bottom: 0;
-    right: 0;
+    @extend %br-0;
     transform: translateX(100%);
   }
 
@@ -290,7 +299,6 @@ a {
 
 /* Hover Slide up */
 .hover-slide-up {
-  position: relative;
   transition: .5s ease-out;
   color: blueviolet;
 
@@ -312,5 +320,37 @@ a {
 
   &:hover::after {
     height: 100%;
+  }
+}
+
+
+/* Hover Square */
+.hover-square {
+  transition: .5s ease-out;
+
+  &:hover {
+    color: white;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    @extend %hw-0;
+    background-color: blueviolet;
+    transition: .5s ease-out;
+    z-index: -1;
+  }
+
+  &::before {
+    @extend %tl-0;
+  }
+
+  &::after {
+    @extend %br-0;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    @extend %hw-100;
   }
 }
