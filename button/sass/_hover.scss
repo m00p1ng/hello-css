@@ -398,6 +398,8 @@ a {
 
 }
 
+
+/* Hover Span In */
 .hover-span-in {
 
   &::before,
@@ -418,5 +420,67 @@ a {
   &::after {
     top: 0;
     right: 0;
+  }
+}
+
+
+/* Hover Shake */
+.hover-shake {
+  border: 3px solid black;
+
+  &:hover {
+    color: #f44336;
+    border: 3px solid #f44336;
+    animation: shake 0.3s linear 1;
+  }
+}
+
+@keyframes shake {
+  33% {
+    transform: rotate(10deg);
+  }
+
+  66% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+
+
+/* Hover Wave */
+.hover-wave {
+  border: 3px solid black;
+
+  &::before {
+    content: '';
+    background-color: #f44336;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    transform: skew(-15deg);
+    animation: moving 1.2s linear infinite;
+  }
+
+  &:hover::before {
+    width: 100%;
+    transform: skew(0);
+    animation: none;
+  }
+}
+
+@keyframes moving {
+  from {
+    left: -120px;
+  }
+
+  to {
+    left: 100%;
   }
 }
