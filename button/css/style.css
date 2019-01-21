@@ -300,3 +300,26 @@ a {
     left: -120px; }
   to {
     left: 100%; } }
+
+/* Hover Conner */
+.hover-conner:before, .hover-conner:after {
+  content: '';
+  height: 20px;
+  width: 20px;
+  border: 2px solid blueviolet;
+  position: absolute;
+  transition: all .3s; }
+
+.hover-conner:before {
+  top: 0px;
+  right: 0px;
+  border-color: blueviolet blueviolet transparent transparent; }
+
+.hover-conner:after {
+  bottom: 0px;
+  left: 0px;
+  border-color: transparent transparent blueviolet blueviolet; }
+
+.hover-conner:hover::before, .hover-conner:hover::after {
+  height: 100%;
+  width: 100%; }
