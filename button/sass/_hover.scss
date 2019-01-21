@@ -488,6 +488,7 @@ a {
 
 /* Hover Conner */
 .hover-conner {
+  overflow: visible;
 
   &:before,
   &:after {
@@ -515,5 +516,33 @@ a {
   &:hover::after {
     height: 100%;
     width: 100%;
+  }
+}
+
+
+/* Hover Grow */
+.hover-grow {
+  border: 1px solid blueviolet;
+  transition: box-shadow .4s;
+  overflow: visible;
+
+  &:hover {
+    box-shadow: inset 0px 0px 15px blueviolet;
+  }
+
+  &:before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: 1px solid blueviolet;
+    top: 0px;
+    left: 0px;
+    transition: all .3s;
+  }
+
+  &:hover::before {
+    transform: scale(1.2);
+    border-color: transparent;
   }
 }
